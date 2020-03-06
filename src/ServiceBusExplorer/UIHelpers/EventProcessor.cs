@@ -101,50 +101,63 @@ namespace ServiceBusExplorer.UIHelpers
                 {
                     return;
                 }
+
                 var events = messages as IList<EventData> ?? messages.ToList();
-                var bodySize = (long)0;
+                var bodySize = 0L;
+                var handledEvents = 0L;
                 for (var i = 0; i < events.Count; i++)
                 {
+                    var eventData = events[i];
+
+                    if (configuration.EventPredicate != null &&
+                        !configuration.EventPredicate(eventData))
+                    {
+                        continue;
+                    }
+
                     if (configuration.CancellationToken.IsCancellationRequested)
                     {
                         break;
                     }
                     if (configuration.MessageInspector != null)
                     {
-                        events[i] = configuration.MessageInspector.AfterReceiveMessage(events[i]);
+                        eventData = configuration.MessageInspector.AfterReceiveMessage(eventData);
                     }
                     if (configuration.Logging)
                     {
-                        var builder = new StringBuilder(string.IsNullOrWhiteSpace(events[i].PartitionKey)?
+                        var builder = new StringBuilder(string.IsNullOrWhiteSpace(eventData.PartitionKey)?
                                                         string.Format(EventDataSuccessfullyNoPartitionKeyReceived,
                                                         context.Lease.PartitionId,
-                                                        events[i].SequenceNumber,
-                                                        events[i].Offset,
-                                                        events[i].EnqueuedTimeUtc):
+                                                        eventData.SequenceNumber,
+                                                        eventData.Offset,
+                                                        eventData.EnqueuedTimeUtc):
                                                         string.Format(EventDataSuccessfullyReceived,
                                                         context.Lease.PartitionId,
-                                                        events[i].PartitionKey,
-                                                        events[i].SequenceNumber,
-                                                        events[i].Offset,
-                                                        events[i].EnqueuedTimeUtc));
+                                                        eventData.PartitionKey,
+                                                        eventData.SequenceNumber,
+                                                        eventData.Offset,
+                                                        eventData.EnqueuedTimeUtc));
                         if (configuration.Verbose)
                         {
-                            configuration.ServiceBusHelper.GetMessageAndProperties(builder, events[i]);
+                            configuration.ServiceBusHelper.GetMessageAndProperties(builder, eventData);
                         }
                         configuration.WriteToLog(builder.ToString());
                     }
                     if (configuration.Tracking && !configuration.CancellationToken.IsCancellationRequested)
                     {
-                        configuration.TrackEvent(events[i]);
+                        configuration.TrackEvent(eventData);
                     }
-                    bodySize += events[i].SerializedSizeInBytes;
+
+                    handledEvents++;
+                    bodySize += eventData.SerializedSizeInBytes;
+
                     if (!configuration.Checkpoint)
                     {
                         continue;
                     }
                     await partitionContext.CheckpointAsync(events[events.Count - 1]);
                 }
-                configuration.UpdateStatistics(events.Count, configuration.GetElapsedTime(), bodySize);
+                configuration.UpdateStatistics(handledEvents, configuration.GetElapsedTime(), bodySize);
             }
             catch (LeaseLostException)
             {

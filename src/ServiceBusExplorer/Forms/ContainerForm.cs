@@ -697,33 +697,34 @@ namespace ServiceBusExplorer.Forms
 
         private void InternalWriteToLog(string message)
         {
+            if (string.IsNullOrWhiteSpace(message)) return;
+
             lock (this)
             {
-                if (!string.IsNullOrWhiteSpace(message))
-                {
-                    var lines = message.Split('\n');
-                    var objNow = DateTime.Now;
-                    var space = new string(' ', 11);
+                var lines = message.Split('\n');
+                var objNow = DateTime.Now;
+                var space = new string(' ', 11);
 
-                    for (var i = 0; i < lines.Length; i++)
+                lstLog.BeginUpdate();
+                for (var i = 0; i < lines.Length; i++)
+                {
+                    if (i == 0)
                     {
-                        if (i == 0)
-                        {
-                            var line = string.Format(DateFormat,
-                                                        objNow.Hour,
-                                                        objNow.Minute,
-                                                        objNow.Second,
-                                                        lines[i]);
-                            lstLog.Items.Add(line);
-                        }
-                        else
-                        {
-                            lstLog.Items.Add(space + lines[i]);
-                        }
+                        var line = string.Format(DateFormat,
+                            objNow.Hour,
+                            objNow.Minute,
+                            objNow.Second,
+                            lines[i]);
+                        lstLog.Items.Add(line);
                     }
-                    lstLog.SelectedIndex = lstLog.Items.Count - 1;
-                    lstLog.SelectedIndex = -1;
+                    else
+                    {
+                        lstLog.Items.Add(space + lines[i]);
+                    }
                 }
+                lstLog.EndUpdate();
+                lstLog.SelectedIndex = lstLog.Items.Count - 1;
+                lstLog.SelectedIndex = -1;
             }
         }
 

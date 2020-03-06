@@ -115,6 +115,7 @@ namespace ServiceBusExplorer.UIHelpers
             }
         }
 
+        public Func<EventData, bool> EventPredicate { get; set; }
         public Func<EventData, object> TrackEvent { get; set; }
         public Func<long> GetElapsedTime { get; set; }
         public Action<long, long, long> UpdateStatistics { get; set; }
