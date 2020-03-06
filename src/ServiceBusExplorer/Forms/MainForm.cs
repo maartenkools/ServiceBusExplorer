@@ -269,22 +269,8 @@ namespace ServiceBusExplorer.Forms
             GetServiceBusNamespaceSettingsFromConfiguration();
             ReadEventHubPartitionCheckpointFile();
             UpdateSavedConnectionsMenu();
-            DisplayNewVersionInformation();
 
             WriteToLog(logMessage);
-        }
-
-        void DisplayNewVersionInformation()
-        {
-            if (!VersionProvider.IsLatestVersion(out var releaseInfo, WriteToLog))
-            {
-                linkLabelNewVersionAvailable.Visible = true;
-                linkLabelNewVersionAvailable.Text = $"New Version {releaseInfo.Version} is available";
-            }
-            else
-            {
-                linkLabelNewVersionAvailable.Visible = false;
-            }
         }
 
         private void UpdateSavedConnectionsMenu()
