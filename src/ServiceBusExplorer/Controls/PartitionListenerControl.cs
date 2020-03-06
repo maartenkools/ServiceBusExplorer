@@ -21,6 +21,12 @@
 
 #region Using Directives
 
+using Microsoft.ServiceBus;
+using Microsoft.ServiceBus.Messaging;
+using ServiceBusExplorer.Forms;
+using ServiceBusExplorer.Helpers;
+using ServiceBusExplorer.UIHelpers;
+using ServiceBusExplorer.Utilities.Helpers;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -33,12 +39,6 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ServiceBusExplorer.Forms;
-using ServiceBusExplorer.Helpers;
-using Microsoft.ServiceBus;
-using Microsoft.ServiceBus.Messaging;
-using ServiceBusExplorer.UIHelpers;
-using ServiceBusExplorer.Utilities.Helpers;
 
 // ReSharper disable CoVariantArrayConversion
 #endregion
@@ -794,6 +794,7 @@ namespace ServiceBusExplorer.Controls
                 var ns = serviceBusHelper != null && !string.IsNullOrWhiteSpace(serviceBusHelper.Namespace) ? serviceBusHelper.Namespace : iotHubConnectionString;
                 var eventHub = eventHubClient.Path;
                 var maxBatchSize = txtMaxBatchSize.IntegerValue > 0 ? txtMaxBatchSize.IntegerValue : 1;
+                var rdcNumber = txtRdcNumber.Text;
                 var receiveTimeout = TimeSpan.FromSeconds(txtReceiveTimeout.IntegerValue);
                 try
                 {
@@ -831,6 +832,9 @@ namespace ServiceBusExplorer.Controls
                                                                                                     checkBoxCheckpoint,
                                                                                                     cancellationTokenSource.Token)
                     {
+                        EventPredicate = ev => string.IsNullOrWhiteSpace(rdcNumber) ||
+                                               (ev.Properties.TryGetValue("RdcNumber", out var rdcNumberValue) &&
+                                                string.Equals(rdcNumber, rdcNumberValue.ToString(), StringComparison.Ordinal)),
                         TrackEvent = ev => Invoke(new Action<EventData>(m => eventDataCollection.Add(m)), ev),
                         GetElapsedTime = GetElapsedTime,
                         UpdateStatistics = UpdateStatistics,
