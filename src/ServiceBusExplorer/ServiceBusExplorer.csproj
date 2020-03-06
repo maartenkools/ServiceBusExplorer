@@ -656,6 +656,7 @@
     <Content Include="Images\Property.png" />
     <Content Include="Images\Questions.png" />
     <Content Include="Images\Queue.png" />
+    <Content Include="Images\rdc-logo.png" />
     <Content Include="Images\RelayService.png" />
     <Content Include="Images\RelayServices.png" />
     <Content Include="Images\SmallBlueDelete.png" />

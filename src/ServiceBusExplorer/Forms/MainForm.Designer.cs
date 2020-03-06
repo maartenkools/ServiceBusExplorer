@@ -51,17 +51,12 @@ namespace ServiceBusExplorer.Forms
             this.toolStripSeparator21 = new System.Windows.Forms.ToolStripSeparator();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showCommandLineOptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
-            this.panelTreeView = new ServiceBusExplorer.Controls.HeaderPanel();
-            this.serviceBusTreeView = new System.Windows.Forms.TreeView();
-            this.panelMain = new ServiceBusExplorer.Controls.HeaderPanel();
             this.mainSplitContainer = new System.Windows.Forms.SplitContainer();
-            this.panelLog = new ServiceBusExplorer.Controls.HeaderPanel();
-            this.lstLog = new System.Windows.Forms.ListBox();
             this.logContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.copyAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copySelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -305,7 +300,6 @@ namespace ServiceBusExplorer.Forms
             this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator62 = new System.Windows.Forms.ToolStripSeparator();
             this.createConsumerGroupListenerMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.relayServiceFolderContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -324,17 +318,20 @@ namespace ServiceBusExplorer.Forms
             this.toolStripSeparator69 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem27 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem28 = new System.Windows.Forms.ToolStripMenuItem();
-            this.linkLabelNewVersionAvailable = new System.Windows.Forms.LinkLabel();
+            this.logoPictureBox = new System.Windows.Forms.PictureBox();
+            this.panelTreeView = new ServiceBusExplorer.Controls.HeaderPanel();
+            this.serviceBusTreeView = new System.Windows.Forms.TreeView();
+            this.panelMain = new ServiceBusExplorer.Controls.HeaderPanel();
+            this.panelLog = new ServiceBusExplorer.Controls.HeaderPanel();
+            this.lstLog = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
-            this.panelTreeView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
             this.mainSplitContainer.Panel1.SuspendLayout();
             this.mainSplitContainer.Panel2.SuspendLayout();
             this.mainSplitContainer.SuspendLayout();
-            this.panelLog.SuspendLayout();
             this.logContextMenuStrip.SuspendLayout();
             this.rootContextMenuStrip.SuspendLayout();
             this.queuesContextMenuStrip.SuspendLayout();
@@ -358,9 +355,11 @@ namespace ServiceBusExplorer.Forms
             this.partitionContextMenuStrip.SuspendLayout();
             this.partitionsContextMenuStrip.SuspendLayout();
             this.consumerGroupContextMenuStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             this.relayServiceFolderContextMenuStrip.SuspendLayout();
             this.relayContextMenuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
+            this.panelTreeView.SuspendLayout();
+            this.panelLog.SuspendLayout();
             this.SuspendLayout();
             // 
             // imageList
@@ -533,6 +532,13 @@ namespace ServiceBusExplorer.Forms
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "&Help";
             // 
+            // showCommandLineOptionsToolStripMenuItem
+            // 
+            this.showCommandLineOptionsToolStripMenuItem.Name = "showCommandLineOptionsToolStripMenuItem";
+            this.showCommandLineOptionsToolStripMenuItem.Size = new System.Drawing.Size(253, 22);
+            this.showCommandLineOptionsToolStripMenuItem.Text = "Show Command Line Options";
+            this.showCommandLineOptionsToolStripMenuItem.Click += new System.EventHandler(this.displayHelpToolStripMenuItem_Click);
+            // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
@@ -540,13 +546,6 @@ namespace ServiceBusExplorer.Forms
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(253, 22);
             this.aboutToolStripMenuItem.Text = "&About Service Bus Explorer";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-            // 
-            // showCommandLineOptionsToolStripMenuItem
-            // 
-            this.showCommandLineOptionsToolStripMenuItem.Name = "showCommandLineOptionsToolStripMenuItem";
-            this.showCommandLineOptionsToolStripMenuItem.Size = new System.Drawing.Size(253, 22);
-            this.showCommandLineOptionsToolStripMenuItem.Text = "Show Command Line Options";
-            this.showCommandLineOptionsToolStripMenuItem.Click += new System.EventHandler(this.displayHelpToolStripMenuItem_Click);
             // 
             // statusStrip
             // 
@@ -580,64 +579,6 @@ namespace ServiceBusExplorer.Forms
             this.splitContainer.TabIndex = 1;
             this.splitContainer.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.mainSplitContainer_SplitterMoved);
             // 
-            // panelTreeView
-            // 
-            this.panelTreeView.AutoScroll = true;
-            this.panelTreeView.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panelTreeView.Controls.Add(this.serviceBusTreeView);
-            this.panelTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelTreeView.ForeColor = System.Drawing.SystemColors.Window;
-            this.panelTreeView.HeaderColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(205)))), ((int)(((byte)(219)))));
-            this.panelTreeView.HeaderColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(180)))), ((int)(((byte)(209)))));
-            this.panelTreeView.HeaderFont = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
-            this.panelTreeView.HeaderHeight = 24;
-            this.panelTreeView.HeaderText = "Service Bus Namespace";
-            this.panelTreeView.Icon = ((System.Drawing.Image)(resources.GetObject("panelTreeView.Icon")));
-            this.panelTreeView.IconTransparentColor = System.Drawing.Color.White;
-            this.panelTreeView.Location = new System.Drawing.Point(0, 0);
-            this.panelTreeView.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.panelTreeView.Name = "panelTreeView";
-            this.panelTreeView.Padding = new System.Windows.Forms.Padding(5, 29, 5, 4);
-            this.panelTreeView.Size = new System.Drawing.Size(372, 570);
-            this.panelTreeView.TabIndex = 0;
-            // 
-            // serviceBusTreeView
-            // 
-            this.serviceBusTreeView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.serviceBusTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.serviceBusTreeView.ImageIndex = 0;
-            this.serviceBusTreeView.ImageList = this.imageList;
-            this.serviceBusTreeView.Indent = 20;
-            this.serviceBusTreeView.ItemHeight = 20;
-            this.serviceBusTreeView.Location = new System.Drawing.Point(5, 29);
-            this.serviceBusTreeView.Name = "serviceBusTreeView";
-            this.serviceBusTreeView.SelectedImageIndex = 0;
-            this.serviceBusTreeView.Size = new System.Drawing.Size(362, 537);
-            this.serviceBusTreeView.TabIndex = 13;
-            this.serviceBusTreeView.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.serviceBusTreeView_BeforeExpand);
-            this.serviceBusTreeView.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.serviceBusTreeView_NodeMouseClick);
-            this.serviceBusTreeView.KeyUp += new System.Windows.Forms.KeyEventHandler(this.serviceBusTreeView_KeyUp);
-            // 
-            // panelMain
-            // 
-            this.panelMain.AutoScroll = true;
-            this.panelMain.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.ForeColor = System.Drawing.SystemColors.Window;
-            this.panelMain.HeaderColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(205)))), ((int)(((byte)(219)))));
-            this.panelMain.HeaderColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(180)))), ((int)(((byte)(209)))));
-            this.panelMain.HeaderFont = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
-            this.panelMain.HeaderHeight = 24;
-            this.panelMain.HeaderText = "";
-            this.panelMain.Icon = global::ServiceBusExplorer.Properties.Resources.SmallWorld;
-            this.panelMain.IconTransparentColor = System.Drawing.Color.White;
-            this.panelMain.Location = new System.Drawing.Point(0, 0);
-            this.panelMain.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.panelMain.Name = "panelMain";
-            this.panelMain.Padding = new System.Windows.Forms.Padding(5, 29, 5, 4);
-            this.panelMain.Size = new System.Drawing.Size(1008, 570);
-            this.panelMain.TabIndex = 0;
-            // 
             // mainSplitContainer
             // 
             this.mainSplitContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -658,44 +599,6 @@ namespace ServiceBusExplorer.Forms
             this.mainSplitContainer.SplitterDistance = 570;
             this.mainSplitContainer.TabIndex = 21;
             this.mainSplitContainer.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.mainSplitContainer_SplitterMoved);
-            // 
-            // panelLog
-            // 
-            this.panelLog.AutoScroll = true;
-            this.panelLog.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panelLog.Controls.Add(this.lstLog);
-            this.panelLog.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelLog.ForeColor = System.Drawing.SystemColors.Window;
-            this.panelLog.HeaderColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(205)))), ((int)(((byte)(219)))));
-            this.panelLog.HeaderColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(180)))), ((int)(((byte)(209)))));
-            this.panelLog.HeaderFont = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
-            this.panelLog.HeaderHeight = 24;
-            this.panelLog.HeaderText = "Log";
-            this.panelLog.Icon = ((System.Drawing.Image)(resources.GetObject("panelLog.Icon")));
-            this.panelLog.IconTransparentColor = System.Drawing.Color.White;
-            this.panelLog.Location = new System.Drawing.Point(0, 0);
-            this.panelLog.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.panelLog.Name = "panelLog";
-            this.panelLog.Padding = new System.Windows.Forms.Padding(5, 29, 5, 4);
-            this.panelLog.Size = new System.Drawing.Size(1384, 210);
-            this.panelLog.TabIndex = 0;
-            // 
-            // lstLog
-            // 
-            this.lstLog.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lstLog.ContextMenuStrip = this.logContextMenuStrip;
-            this.lstLog.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lstLog.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstLog.FormattingEnabled = true;
-            this.lstLog.HorizontalScrollbar = true;
-            this.lstLog.ItemHeight = 14;
-            this.lstLog.Location = new System.Drawing.Point(5, 29);
-            this.lstLog.Name = "lstLog";
-            this.lstLog.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lstLog.Size = new System.Drawing.Size(1374, 177);
-            this.lstLog.TabIndex = 4;
-            this.lstLog.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lstLog_KeyDown);
-            this.lstLog.Leave += new System.EventHandler(this.lstLog_Leave);
             // 
             // logContextMenuStrip
             // 
@@ -2623,18 +2526,6 @@ namespace ServiceBusExplorer.Forms
     "tion.";
             this.createConsumerGroupListenerMenuItem.Click += new System.EventHandler(this.createEntityListenerMenuItem_Click);
             // 
-            // logoPictureBox
-            // 
-            this.logoPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.logoPictureBox.BackgroundImage = global::ServiceBusExplorer.Properties.Resources.MicrosoftAzureWhiteLogo;
-            this.logoPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.logoPictureBox.Location = new System.Drawing.Point(1304, 16);
-            this.logoPictureBox.Margin = new System.Windows.Forms.Padding(4);
-            this.logoPictureBox.Name = "logoPictureBox";
-            this.logoPictureBox.Size = new System.Drawing.Size(96, 12);
-            this.logoPictureBox.TabIndex = 23;
-            this.logoPictureBox.TabStop = false;
-            // 
             // relayServiceFolderContextMenuStrip
             // 
             this.relayServiceFolderContextMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -2779,21 +2670,113 @@ namespace ServiceBusExplorer.Forms
             this.toolStripMenuItem28.ToolTipText = "Test the current relay in MDI mode.";
             this.toolStripMenuItem28.Click += new System.EventHandler(this.testEntityInMDIMode_Click);
             // 
-            // linkLabelNewVersionAvailable
+            // logoPictureBox
             // 
-            this.linkLabelNewVersionAvailable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.linkLabelNewVersionAvailable.AutoSize = true;
-            this.linkLabelNewVersionAvailable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabelNewVersionAvailable.ForeColor = System.Drawing.Color.Navy;
-            this.linkLabelNewVersionAvailable.LinkColor = System.Drawing.Color.Navy;
-            this.linkLabelNewVersionAvailable.Location = new System.Drawing.Point(1050, 15);
-            this.linkLabelNewVersionAvailable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.linkLabelNewVersionAvailable.Name = "linkLabelNewVersionAvailable";
-            this.linkLabelNewVersionAvailable.Size = new System.Drawing.Size(149, 15);
-            this.linkLabelNewVersionAvailable.TabIndex = 24;
-            this.linkLabelNewVersionAvailable.TabStop = true;
-            this.linkLabelNewVersionAvailable.Text = "New Version Available";
-            this.linkLabelNewVersionAvailable.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelNewVersionAvailable_LinkClicked);
+            this.logoPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.logoPictureBox.BackgroundImage = global::ServiceBusExplorer.Properties.Resources.rdc_logo;
+            this.logoPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.logoPictureBox.Location = new System.Drawing.Point(1209, 1);
+            this.logoPictureBox.Margin = new System.Windows.Forms.Padding(4);
+            this.logoPictureBox.Name = "logoPictureBox";
+            this.logoPictureBox.Size = new System.Drawing.Size(191, 32);
+            this.logoPictureBox.TabIndex = 23;
+            this.logoPictureBox.TabStop = false;
+            // 
+            // panelTreeView
+            // 
+            this.panelTreeView.AutoScroll = true;
+            this.panelTreeView.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panelTreeView.Controls.Add(this.serviceBusTreeView);
+            this.panelTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelTreeView.ForeColor = System.Drawing.SystemColors.Window;
+            this.panelTreeView.HeaderColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(205)))), ((int)(((byte)(219)))));
+            this.panelTreeView.HeaderColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(180)))), ((int)(((byte)(209)))));
+            this.panelTreeView.HeaderFont = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.panelTreeView.HeaderHeight = 24;
+            this.panelTreeView.HeaderText = "Service Bus Namespace";
+            this.panelTreeView.Icon = ((System.Drawing.Image)(resources.GetObject("panelTreeView.Icon")));
+            this.panelTreeView.IconTransparentColor = System.Drawing.Color.White;
+            this.panelTreeView.Location = new System.Drawing.Point(0, 0);
+            this.panelTreeView.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.panelTreeView.Name = "panelTreeView";
+            this.panelTreeView.Padding = new System.Windows.Forms.Padding(5, 29, 5, 4);
+            this.panelTreeView.Size = new System.Drawing.Size(372, 570);
+            this.panelTreeView.TabIndex = 0;
+            // 
+            // serviceBusTreeView
+            // 
+            this.serviceBusTreeView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.serviceBusTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.serviceBusTreeView.ImageIndex = 0;
+            this.serviceBusTreeView.ImageList = this.imageList;
+            this.serviceBusTreeView.Indent = 20;
+            this.serviceBusTreeView.ItemHeight = 20;
+            this.serviceBusTreeView.Location = new System.Drawing.Point(5, 29);
+            this.serviceBusTreeView.Name = "serviceBusTreeView";
+            this.serviceBusTreeView.SelectedImageIndex = 0;
+            this.serviceBusTreeView.Size = new System.Drawing.Size(362, 537);
+            this.serviceBusTreeView.TabIndex = 13;
+            this.serviceBusTreeView.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.serviceBusTreeView_BeforeExpand);
+            this.serviceBusTreeView.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.serviceBusTreeView_NodeMouseClick);
+            this.serviceBusTreeView.KeyUp += new System.Windows.Forms.KeyEventHandler(this.serviceBusTreeView_KeyUp);
+            // 
+            // panelMain
+            // 
+            this.panelMain.AutoScroll = true;
+            this.panelMain.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMain.ForeColor = System.Drawing.SystemColors.Window;
+            this.panelMain.HeaderColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(205)))), ((int)(((byte)(219)))));
+            this.panelMain.HeaderColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(180)))), ((int)(((byte)(209)))));
+            this.panelMain.HeaderFont = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.panelMain.HeaderHeight = 24;
+            this.panelMain.HeaderText = "";
+            this.panelMain.Icon = global::ServiceBusExplorer.Properties.Resources.SmallWorld;
+            this.panelMain.IconTransparentColor = System.Drawing.Color.White;
+            this.panelMain.Location = new System.Drawing.Point(0, 0);
+            this.panelMain.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Padding = new System.Windows.Forms.Padding(5, 29, 5, 4);
+            this.panelMain.Size = new System.Drawing.Size(1008, 570);
+            this.panelMain.TabIndex = 0;
+            // 
+            // panelLog
+            // 
+            this.panelLog.AutoScroll = true;
+            this.panelLog.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panelLog.Controls.Add(this.lstLog);
+            this.panelLog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelLog.ForeColor = System.Drawing.SystemColors.Window;
+            this.panelLog.HeaderColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(205)))), ((int)(((byte)(219)))));
+            this.panelLog.HeaderColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(180)))), ((int)(((byte)(209)))));
+            this.panelLog.HeaderFont = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.panelLog.HeaderHeight = 24;
+            this.panelLog.HeaderText = "Log";
+            this.panelLog.Icon = ((System.Drawing.Image)(resources.GetObject("panelLog.Icon")));
+            this.panelLog.IconTransparentColor = System.Drawing.Color.White;
+            this.panelLog.Location = new System.Drawing.Point(0, 0);
+            this.panelLog.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.panelLog.Name = "panelLog";
+            this.panelLog.Padding = new System.Windows.Forms.Padding(5, 29, 5, 4);
+            this.panelLog.Size = new System.Drawing.Size(1384, 210);
+            this.panelLog.TabIndex = 0;
+            // 
+            // lstLog
+            // 
+            this.lstLog.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lstLog.ContextMenuStrip = this.logContextMenuStrip;
+            this.lstLog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstLog.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstLog.FormattingEnabled = true;
+            this.lstLog.HorizontalScrollbar = true;
+            this.lstLog.ItemHeight = 14;
+            this.lstLog.Location = new System.Drawing.Point(5, 29);
+            this.lstLog.Name = "lstLog";
+            this.lstLog.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.lstLog.Size = new System.Drawing.Size(1374, 177);
+            this.lstLog.TabIndex = 4;
+            this.lstLog.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lstLog_KeyDown);
+            this.lstLog.Leave += new System.EventHandler(this.lstLog_Leave);
             // 
             // MainForm
             // 
@@ -2802,7 +2785,6 @@ namespace ServiceBusExplorer.Forms
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(228)))), ((int)(((byte)(242)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1416, 841);
-            this.Controls.Add(this.linkLabelNewVersionAvailable);
             this.Controls.Add(this.logoPictureBox);
             this.Controls.Add(this.mainSplitContainer);
             this.Controls.Add(this.statusStrip);
@@ -2821,12 +2803,10 @@ namespace ServiceBusExplorer.Forms
             this.splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
-            this.panelTreeView.ResumeLayout(false);
             this.mainSplitContainer.Panel1.ResumeLayout(false);
             this.mainSplitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).EndInit();
             this.mainSplitContainer.ResumeLayout(false);
-            this.panelLog.ResumeLayout(false);
             this.logContextMenuStrip.ResumeLayout(false);
             this.rootContextMenuStrip.ResumeLayout(false);
             this.queuesContextMenuStrip.ResumeLayout(false);
@@ -2851,9 +2831,11 @@ namespace ServiceBusExplorer.Forms
             this.partitionContextMenuStrip.ResumeLayout(false);
             this.partitionsContextMenuStrip.ResumeLayout(false);
             this.consumerGroupContextMenuStrip.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
             this.relayServiceFolderContextMenuStrip.ResumeLayout(false);
             this.relayContextMenuStrip.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
+            this.panelTreeView.ResumeLayout(false);
+            this.panelLog.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3151,7 +3133,6 @@ namespace ServiceBusExplorer.Forms
         private System.Windows.Forms.ToolStripMenuItem copyNamespaceUrlMenuItem;
         private System.Windows.Forms.ToolStripMenuItem copyConnectionStringMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator68;
-        private System.Windows.Forms.LinkLabel linkLabelNewVersionAvailable;
         private System.Windows.Forms.ToolStripMenuItem showCommandLineOptionsToolStripMenuItem;
     }
 }
