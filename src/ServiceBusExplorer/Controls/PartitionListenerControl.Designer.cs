@@ -16,12 +16,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PartitionListenerControl));
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.btnClose = new System.Windows.Forms.Button();
@@ -49,6 +49,8 @@
             this.nameColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.valueColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.grouperOptions = new ServiceBusExplorer.Controls.Grouper();
+            this.txtRdcNumber = new System.Windows.Forms.TextBox();
+            this.lblRdcNumber = new System.Windows.Forms.Label();
             this.lblStartingDateTimeUtc = new System.Windows.Forms.Label();
             this.pickerStartingDateTimeUtc = new System.Windows.Forms.DateTimePicker();
             this.checkBoxOffsetInclusive = new System.Windows.Forms.CheckBox();
@@ -89,8 +91,6 @@
             this.partitionInformationContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.copyPartitionInformationToClipboardMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.lblRdcNumber = new System.Windows.Forms.Label();
-            this.txtRdcNumber = new System.Windows.Forms.TextBox();
             this.mainTabControl.SuspendLayout();
             this.tabPageListener.SuspendLayout();
             this.grouperStatistics.SuspendLayout();
@@ -345,78 +345,78 @@
             this.chart.BorderSkin.BorderWidth = 0;
             this.chart.BorderSkin.PageColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(228)))), ((int)(((byte)(242)))));
             this.chart.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.FrameTitle1;
-            chartArea2.Area3DStyle.Inclination = 15;
-            chartArea2.Area3DStyle.IsClustered = true;
-            chartArea2.Area3DStyle.IsRightAngleAxes = false;
-            chartArea2.Area3DStyle.Perspective = 10;
-            chartArea2.Area3DStyle.Rotation = 10;
-            chartArea2.Area3DStyle.WallWidth = 0;
-            chartArea2.AxisX.LabelAutoFitStyle = ((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles)(((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.IncreaseFont | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.DecreaseFont) 
+            chartArea1.Area3DStyle.Inclination = 15;
+            chartArea1.Area3DStyle.IsClustered = true;
+            chartArea1.Area3DStyle.IsRightAngleAxes = false;
+            chartArea1.Area3DStyle.Perspective = 10;
+            chartArea1.Area3DStyle.Rotation = 10;
+            chartArea1.Area3DStyle.WallWidth = 0;
+            chartArea1.AxisX.LabelAutoFitStyle = ((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles)(((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.IncreaseFont | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.DecreaseFont) 
             | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.WordWrap)));
-            chartArea2.AxisX.LabelStyle.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold);
-            chartArea2.AxisX.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            chartArea2.AxisX.ScrollBar.LineColor = System.Drawing.Color.Black;
-            chartArea2.AxisX.ScrollBar.Size = 10D;
-            chartArea2.AxisX.Title = "Events";
-            chartArea2.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea2.AxisY.LabelStyle.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold);
-            chartArea2.AxisY.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            chartArea2.AxisY.ScrollBar.LineColor = System.Drawing.Color.Black;
-            chartArea2.AxisY.ScrollBar.Size = 10D;
-            chartArea2.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea2.AxisY2.Title = "Messages/Sec";
-            chartArea2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(228)))), ((int)(((byte)(242)))));
-            chartArea2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-            chartArea2.BackSecondaryColor = System.Drawing.Color.White;
-            chartArea2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            chartArea2.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            chartArea2.CursorX.IsUserEnabled = true;
-            chartArea2.CursorX.IsUserSelectionEnabled = true;
-            chartArea2.CursorY.IsUserEnabled = true;
-            chartArea2.CursorY.IsUserSelectionEnabled = true;
-            chartArea2.Name = "Default";
-            chartArea2.ShadowColor = System.Drawing.Color.White;
-            this.chart.ChartAreas.Add(chartArea2);
-            legend2.Alignment = System.Drawing.StringAlignment.Center;
-            legend2.BackColor = System.Drawing.Color.Transparent;
-            legend2.Font = new System.Drawing.Font("Trebuchet MS", 8.25F);
-            legend2.IsTextAutoFit = false;
-            legend2.MaximumAutoSize = 18F;
-            legend2.Name = "Default";
-            this.chart.Legends.Add(legend2);
+            chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold);
+            chartArea1.AxisX.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            chartArea1.AxisX.ScrollBar.LineColor = System.Drawing.Color.Black;
+            chartArea1.AxisX.ScrollBar.Size = 10D;
+            chartArea1.AxisX.Title = "Events";
+            chartArea1.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisY.LabelStyle.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold);
+            chartArea1.AxisY.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            chartArea1.AxisY.ScrollBar.LineColor = System.Drawing.Color.Black;
+            chartArea1.AxisY.ScrollBar.Size = 10D;
+            chartArea1.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisY2.Title = "Messages/Sec";
+            chartArea1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(228)))), ((int)(((byte)(242)))));
+            chartArea1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            chartArea1.BackSecondaryColor = System.Drawing.Color.White;
+            chartArea1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            chartArea1.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            chartArea1.CursorX.IsUserEnabled = true;
+            chartArea1.CursorX.IsUserSelectionEnabled = true;
+            chartArea1.CursorY.IsUserEnabled = true;
+            chartArea1.CursorY.IsUserSelectionEnabled = true;
+            chartArea1.Name = "Default";
+            chartArea1.ShadowColor = System.Drawing.Color.White;
+            this.chart.ChartAreas.Add(chartArea1);
+            legend1.Alignment = System.Drawing.StringAlignment.Center;
+            legend1.BackColor = System.Drawing.Color.Transparent;
+            legend1.Font = new System.Drawing.Font("Trebuchet MS", 8.25F);
+            legend1.IsTextAutoFit = false;
+            legend1.MaximumAutoSize = 18F;
+            legend1.Name = "Default";
+            this.chart.Legends.Add(legend1);
             this.chart.Location = new System.Drawing.Point(16, 16);
             this.chart.Name = "chart";
-            series4.BorderColor = System.Drawing.Color.Red;
-            series4.BorderWidth = 2;
-            series4.ChartArea = "Default";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series4.Legend = "Default";
-            series4.LegendText = "Latency";
-            series4.Name = "ReceiverLatency";
-            series5.BorderWidth = 2;
-            series5.ChartArea = "Default";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series5.Legend = "Default";
-            series5.LegendText = "Throughput";
-            series5.Name = "ReceiverThroughput";
-            series6.ChartArea = "Default";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series6.Legend = "Default";
-            series6.LegendText = "KB/Sec";
-            series6.Name = "MessageSizePerSecond";
-            this.chart.Series.Add(series4);
-            this.chart.Series.Add(series5);
-            this.chart.Series.Add(series6);
+            series1.BorderColor = System.Drawing.Color.Red;
+            series1.BorderWidth = 2;
+            series1.ChartArea = "Default";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series1.Legend = "Default";
+            series1.LegendText = "Latency";
+            series1.Name = "ReceiverLatency";
+            series2.BorderWidth = 2;
+            series2.ChartArea = "Default";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series2.Legend = "Default";
+            series2.LegendText = "Throughput";
+            series2.Name = "ReceiverThroughput";
+            series3.ChartArea = "Default";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series3.Legend = "Default";
+            series3.LegendText = "KB/Sec";
+            series3.Name = "MessageSizePerSecond";
+            this.chart.Series.Add(series1);
+            this.chart.Series.Add(series2);
+            this.chart.Series.Add(series3);
             this.chart.Size = new System.Drawing.Size(616, 364);
             this.chart.TabIndex = 128;
-            title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title2.Name = "Title";
-            title2.ShadowColor = System.Drawing.Color.Transparent;
-            title2.ShadowOffset = 1;
-            title2.Text = "Listener Performance Counters";
-            this.chart.Titles.Add(title2);
+            title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title1.Name = "Title";
+            title1.ShadowColor = System.Drawing.Color.Transparent;
+            title1.ShadowOffset = 1;
+            title1.Text = "Listener Performance Counters";
+            this.chart.Titles.Add(title1);
             // 
             // grouperPartitionInformation
             // 
@@ -553,6 +553,23 @@
             this.grouperOptions.Size = new System.Drawing.Size(608, 149);
             this.grouperOptions.TabIndex = 0;
             this.grouperOptions.Resize += new System.EventHandler(this.grouperOptions_Resize);
+            // 
+            // txtRdcNumber
+            // 
+            this.txtRdcNumber.Location = new System.Drawing.Point(16, 92);
+            this.txtRdcNumber.Name = "txtRdcNumber";
+            this.txtRdcNumber.Size = new System.Drawing.Size(100, 20);
+            this.txtRdcNumber.TabIndex = 151;
+            // 
+            // lblRdcNumber
+            // 
+            this.lblRdcNumber.AutoSize = true;
+            this.lblRdcNumber.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblRdcNumber.Location = new System.Drawing.Point(16, 76);
+            this.lblRdcNumber.Name = "lblRdcNumber";
+            this.lblRdcNumber.Size = new System.Drawing.Size(73, 13);
+            this.lblRdcNumber.TabIndex = 150;
+            this.lblRdcNumber.Text = "RDC Number:";
             // 
             // lblStartingDateTimeUtc
             // 
@@ -721,7 +738,7 @@
             this.tabPageEventData.Location = new System.Drawing.Point(4, 22);
             this.tabPageEventData.Name = "tabPageEventData";
             this.tabPageEventData.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageEventData.Size = new System.Drawing.Size(968, 454);
+            this.tabPageEventData.Size = new System.Drawing.Size(968, 549);
             this.tabPageEventData.TabIndex = 5;
             this.tabPageEventData.Text = "Events";
             this.tabPageEventData.Resize += new System.EventHandler(this.tabPageMessages_Resize);
@@ -872,6 +889,7 @@
             this.txtMessageText.CharWidth = 8;
             this.txtMessageText.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtMessageText.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.txtMessageText.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.txtMessageText.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtMessageText.IsReplaceMode = false;
             this.txtMessageText.Location = new System.Drawing.Point(16, 32);
@@ -1089,23 +1107,6 @@
             this.copyPartitionInformationToClipboardMenuItem.Text = "Copy Partition Information to Clipboard.";
             this.copyPartitionInformationToClipboardMenuItem.ToolTipText = "Copy partition information to clipboard.";
             this.copyPartitionInformationToClipboardMenuItem.Click += new System.EventHandler(this.copyPartitionInformationToClipboardMenuItem_Click);
-            // 
-            // lblRdcNumber
-            // 
-            this.lblRdcNumber.AutoSize = true;
-            this.lblRdcNumber.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblRdcNumber.Location = new System.Drawing.Point(19, 75);
-            this.lblRdcNumber.Name = "lblRdcNumber";
-            this.lblRdcNumber.Size = new System.Drawing.Size(73, 13);
-            this.lblRdcNumber.TabIndex = 150;
-            this.lblRdcNumber.Text = "RDC Number:";
-            // 
-            // txtRdcNumber
-            // 
-            this.txtRdcNumber.Location = new System.Drawing.Point(16, 92);
-            this.txtRdcNumber.Name = "txtRdcNumber";
-            this.txtRdcNumber.Size = new System.Drawing.Size(100, 20);
-            this.txtRdcNumber.TabIndex = 151;
             // 
             // PartitionListenerControl
             // 
